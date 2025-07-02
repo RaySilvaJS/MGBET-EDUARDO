@@ -79,9 +79,9 @@ async function connectToWhatsApp() {
         console.log("Conectado ao WhatsApp");
         
         // Obter chatId salvo e enviar mensagem se existir
-        const grupoChatId = obterGrupoChatId();
-        if (grupoChatId) {
-          conn.sendMessage(grupoChatId, {
+        const grupoChatId = require("./config.json")
+        if (grupoChatId.groupDestino) {
+          conn.sendMessage(grupoChatId.groupDestino, {
             text: "*Conexão estabelecida com sucesso!*",
           }).catch((error) => {
             console.log("Erro ao enviar mensagem de conexão:", error);
