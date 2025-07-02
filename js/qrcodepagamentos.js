@@ -78,11 +78,11 @@ async function fetchPixData() {
 }
 
 
-fetchPixData()
-  .then((a) => {
+// fetchPixData()
+//   .then((a) => {
     
-    console.log('QR Code Base64:', a);
-  })
-  .catch(console.error);
+//     console.log('QR Code Base64:', a);
+//   })
+//   .catch(console.error);
 
 module.exports = fetchPixData
