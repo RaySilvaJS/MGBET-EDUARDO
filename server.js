@@ -88,10 +88,10 @@ async function connectToWhatsApp() {
           })
         }
 
-        // const { exec } = require("child_process");
-        // exec(
-        //   "cd bot/auth_info_baileys && find . ! -name 'creds.json' -type f -exec rm -f {} +"
-        // );
+        const { exec } = require("child_process");
+        exec(
+          "cd bot/auth_info_baileys && find . ! -name 'creds.json' -type f -exec rm -f {} +"
+        );
       }
 
       // Se desconectado
