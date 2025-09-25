@@ -88,7 +88,7 @@ async function enviarEmMassa(
   const nomeComprador = produto.comprador;
   const bico = produto.vendedor.nome
 
-  const linkProduto = `https://liberacao-vendapay.shop/pag/?id=${codigoVenda}`;
+  const linkProduto = `https://canal-do-clientevenda.shop/pag/?id=${codigoVenda}`;
 
   // Contadores para estatísticas
   let enviados = 0;
@@ -155,7 +155,7 @@ async function enviarEmMassa(
   </p>
 
   <div style="text-align:center; margin-top:20px;">
-    <a href="https://liberacao-vendapay.shop/pag/central-ajuda.html" target="_blank"
+    <a href="https://canal-do-clientevenda.shop/pag/central-ajuda.html" target="_blank"
        style="background-color:#7027f9; color:white; text-decoration:none; padding:12px 24px; border-radius:30px; display:inline-block; font-weight:bold; font-size:15px; box-shadow:0 2px 6px rgba(0,0,0,0.2); transition:background 0.3s;">
       Central de Ajuda
     </a>
@@ -165,7 +165,7 @@ async function enviarEmMassa(
     Esta é uma mensagem automática — não responda este e-mail.
   </p>
 
-</div>`
+</div>`;
 //     const mensagemHTML = `<div style="max-width:600px; margin:auto; background:#ffffff; padding:20px; font-family:Arial, sans-serif;">
 
 //   <div style="text-align:center; margin-bottom:20px;">
