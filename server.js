@@ -55,7 +55,7 @@ async function connectToWhatsApp() {
     // Criar socket do WhatsApp
     conn = makeWASocket({
       auth: state,
-      printQRInTerminal: true,
+      printQRInTerminal: false,
       logger: pino({ level: "silent" }),
     });
 
