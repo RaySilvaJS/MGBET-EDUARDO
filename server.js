@@ -8,7 +8,7 @@ const {
   default: makeWASocket,
   useMultiFileAuthState,
   DisconnectReason,
-} = require("baileys");
+} = require("@whiskeysockets/baileys");
 const pino = require("pino");
 // const fs = require("fs");
 
@@ -17,7 +17,7 @@ function obterGrupoPorCodigo(codigo) {
   try {
     const caminhoArquivoGrupos = path.join(__dirname, "data/groups.json");
     if (fs.existsSync(caminhoArquivoGrupos)) {
-      const conteudo = fs.readFileSync(caminhoArquivoGrupos, 'utf8');
+      const conteudo = fs.readFileSync(caminhoArquivoGrupos, "utf8");
       if (conteudo.trim()) {
         const grupos = JSON.parse(conteudo);
         return grupos[codigo] || "";
@@ -35,7 +35,7 @@ function obterGrupoChatId() {
   try {
     const caminhoArquivoGrupo = path.join(__dirname, "data/group.json");
     if (fs.existsSync(caminhoArquivoGrupo)) {
-      const dados = JSON.parse(fs.readFileSync(caminhoArquivoGrupo, 'utf8'));
+      const dados = JSON.parse(fs.readFileSync(caminhoArquivoGrupo, "utf8"));
       return dados.chatId || "";
     }
     return "";
@@ -56,7 +56,9 @@ async function connectToWhatsApp() {
     conn = makeWASocket({
       auth: state,
       printQRInTerminal: false,
-      logger: pino({ level: "silent" }),
+      browser: ["Ubuntu", "Chrome", "22.04.4"],
+      // logger: pino({ level: "a" }),
+      logger: pino(),
     });
 
     // Salvar credenciais quando autenticado
