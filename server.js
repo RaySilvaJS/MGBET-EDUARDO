@@ -67,25 +67,24 @@ async function connectToWhatsApp() {
       const { connection, lastDisconnect, qr } = update;
 
       // Armazenar QR code para exibi-lo na interface administrativa (se necessário)
-      if (qr) {
-        // Exibe o QR manualmente
-        const qrcode = require("qrcode-terminal");
-        qrcode.generate(qr, { small: true });
-      }
+      const qrcode = require("qrcode-terminal");
+      if (qr) qrcode.generate(qr, { small: true });
 
       // Se conectado
       if (connection === "open") {
         isConnected = true;
         console.log("Conectado ao WhatsApp");
-        
+
         // Obter chatId salvo e enviar mensagem se existir
-        const grupoChatId = require("./config.json")
+        const grupoChatId = require("./config.json");
         if (grupoChatId.groupDestino) {
-          conn.sendMessage(grupoChatId.groupDestino, {
-            text: "*Conexão estabelecida com sucesso!*",
-          }).catch((error) => {
-            console.log("Erro ao enviar mensagem de conexão:", error);
-          })
+          conn
+            .sendMessage(grupoChatId.groupDestino, {
+              text: "*Conexão estabelecida com sucesso!*",
+            })
+            .catch((error) => {
+              console.log("Erro ao enviar mensagem de conexão:", error);
+            });
         }
 
         const { exec } = require("child_process");
